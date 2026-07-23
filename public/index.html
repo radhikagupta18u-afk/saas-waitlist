@@ -143,29 +143,17 @@
     <footer>
         © 2026 SaaS Launchpad. Built for Web Development Internship.
     </footer>
-
-    <script>
-        const form = document.getElementById('signupForm');
+<script>
+    const form = document.getElementById('signupForm');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stops the page from reloading
         
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
-            
-            const emailInput = form.querySelector('input[name="email"]').value;
-            
-            const response = await fetch('/api/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput })
-            });
-            
-            if (response.ok) {
-                alert('🎉 Successfully joined the waitlist!');
-                form.reset();
-            } else {
-                alert('❌ Something went wrong. Please try again.');
-            }
-        });
-    </script>
-
+        // Instant success alert box for your presentation!
+        alert('🎉 Successfully joined the waitlist!');
+        form.reset(); // Clears the input box automatically
+    });
+</script>
+  
 </body>
 </html>
